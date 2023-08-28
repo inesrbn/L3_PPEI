@@ -1,0 +1,15 @@
+EDIT_PY=$(realpath edit.py)
+edit_py () {
+  mkdir -p $(dirname $1)
+  python $EDIT_PY >>$1
+}
+alias edit="edit_py <<EOF"
+
+unalias cat
+unalias rm
+unalias ls
+
+rm -rf project project-bis
+make delete-project 2>&1 >/dev/null
+
+export BAT_STYLE="plain"

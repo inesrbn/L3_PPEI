@@ -2,6 +2,10 @@
 
 Ce dépôt contient un projet auquel vous devrez contribuer.
 Vous devrez faire plusieurs contributions décrites ci-dessous, chaque contribution constituera un rendu comptant pour l'évaluation.
+Par ailleurs, le sous-répertoire `cours` contient les éléments projetés en cours:
+
+ * `markdown.md` courte introduction à Markdown
+ * `git/git.html` introduction à git
 
 ## Contributions attendues
 
