@@ -4,7 +4,7 @@ git.html: git.ipynb
 draw:
 	git-draw -w project -g project/.git -p|dot -Tpdf -o project.pdf
 
-TOKEN=$$(cat ../codeberg.tok)
+TOKEN=$$(cat ../../../codeberg.tok)
 
 get-project:
 	curl -s -X "GET" \
