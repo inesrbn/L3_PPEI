@@ -113,7 +113,7 @@
 
 \colorlet{minorcolor}{stripesdarkblue!50}
 
-\newcommand\minor[1]{{\color{minorcolor}#1}}
+\newcommand\minor[1]{{\relsize{-1}\color{minorcolor}#1}}
 \let\URL=\url
 \renewcommand\url[1]{{\color{stripesdarkblue}\URL{#1}}}
 \newcommand\pix[2][]{{\tcbset{opacityback=0,opacityframe=0}\tcbincludegraphics[#1]{pix/#2}}}
@@ -233,7 +233,7 @@
     \emph{the comprehensive {\TeX} archive network}
   \item \url{http://www.gutenberg.eu.org}\\
     groupe francophone des utilisateurs de \TeX, {\LaTeX}
-    \hfill\minor{(doc en français)}
+    \hfill\minor{(FAQ et doc en français)}
   \item \url{http://www.xm1math.net/texmaker}\\
     éditeur multi-plateformes pour \LaTeX, avec toutes les aides nécessaires
   \item \url{http://www.overleaf.com}\\
@@ -734,6 +734,7 @@ ligne vide = nouveau paragraphe
 \begin{frame}[fragile]{Résolution des références en avant}
   \begin{multicols}{2}
     \pyg{refs-one}
+    \vfill\minor{(compilations automatisées par les éditeurs)}
     \columnbreak
     \begin{itemize}
       \item après une seule compilation
@@ -768,6 +769,7 @@ ligne vide = nouveau paragraphe
     \end{itemize}
   \item \tt{mabiblio.bib} contient les données bibliographiques
   \item on compile en quatre temps:
+    \hfill\minor{(automatisé par les éditeurs)}
     \begin{tabbing}
     \* \tt{latex doc} \quad\=\minor{(mémorise les articles cités)}\\
     \* \tt{bibtex doc} \>\minor{(génère la liste de références)}\\
