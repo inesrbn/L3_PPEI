@@ -1,0 +1,14 @@
+__pycache__
+/src
+.python-version
+pyrightconfig.json
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb

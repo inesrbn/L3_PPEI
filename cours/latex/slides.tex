@@ -1,0 +1,932 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[francais]{babel}
+\usepackage[no-math]{fontspec}
+\usepackage{textpos}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{xspace}
+\usepackage{etoolbox}
+\usepackage{mdi}
+\usepackage{multicol}
+
+%%
+%% beamer
+%%
+
+\usetheme{stripes}
+\setbeamercovered{invisible}
+\AtBeginSection[]{
+  \begin{frame}<beamer>{Sommaire}
+    \setcounter{tocdepth}{2}
+    \tableofcontents[currentsection]
+  \end{frame}}
+
+\renewcommand\insertheadline{%
+  \insertheadlinepart{.5}{left}{white}{\insertshortauthor
+    \edef\SECTION{{\insertsection}}%
+    \expandafter\ifblank\SECTION{}{ / \insertsection}}
+  \insertheadlinepart{.5}{right}{white}{{\insertframenumber} / {\inserttotalframenumber}}
+}
+
+%%
+%% LaTeX examples
+%%
+
+\usepackage{fancyvrb}
+\usepackage{pygments}
+\usepackage[most]{tcolorbox}
+
+\tcbset{
+  size=small,
+  colback=yellow!50!gray!10,
+  colframe=yellow!50!black!20,
+}
+
+\directlua{os.execute('mkdir -p src')}
+
+\usepackage{sverb}
+\newwrite\codewrite
+
+\def\gedef{\global\edef}
+
+\newcommand\pdf[2][]{{\def\IG{\tcbincludegraphics[#1]}%
+  \expandafter\IG\csname pdf:#2\endcsname}}
+
+\newcommand\pyg[1]{\expandafter\input\csname pyg:#1\endcsname}
+
+\newcommand\pygpdf[2][\columnwidth]{%
+  \begin{multicols}{2}
+    \pyg{#2}
+    \columnbreak
+    \pdf[width=#1]{#2}
+  \end{multicols}}
+
+\newenvironment{latex}[2][tpl=standalone]{
+  \immediate\openout\codewrite src/tex-#2.opt
+  \immediate\write\codewrite{#1}%
+  \immediate\closeout\codewrite
+  \edef\codename{src/tex-#2}%
+  \expandafter\verbwrite{src/tex-#2.src}
+}{\endverbwrite
+  \directlua{os.execute('python mk.py \codename')}%
+  \expandafter\input\codename.out
+}
+
+\newenvironment{template}[1]{
+  \edef\codewritename{{src/tpl-#1.tex}}%
+  \expandafter\verbwrite\codewritename
+}{\endverbwrite}
+
+%%
+%% LaTeX templates
+%%
+
+\begin{template}{standalone}
+  \documentclass[varwidth{{=TEXTWIDTH}}]{standalone}
+  \usepackage[francais]{babel}
+  \usepackage{graphicx}
+  \usepackage{tikz}
+  \pagestyle{empty}
+  \parindent=0pt
+  \begin{document}
+  {{TEX}}
+  \end{document}
+\end{template}
+
+\begin{template}{article-crop}
+  \documentclass{article}
+  \usepackage[francais]{babel}
+  \usepackage{graphicx}
+  \usepackage{tikz}
+  \pagestyle{empty}
+  \parindent=0pt
+  {{\textwidth=TEXTWIDTH}}
+  \begin{document}
+  {{TEX}}
+  \end{document}
+\end{template}
+
+%%
+%% macros
+%%
+
+\colorlet{minorcolor}{stripesdarkblue!50}
+
+\newcommand\minor[1]{{\color{minorcolor}#1}}
+\let\URL=\url
+\renewcommand\url[1]{{\color{stripesdarkblue}\URL{#1}}}
+\newcommand\pix[2][]{{\tcbset{opacityback=0,opacityframe=0}\tcbincludegraphics[#1]{pix/#2}}}
+\renewcommand\>{\ensuremath{\Rightarrow}}
+\renewcommand\tt[1]{\texttt{#1}}
+\newcommand\BibTeX{\textsc{Bib}\!\TeX}
+\newcommand\macro[1]{\tt{\PY{k}{\PYZbs{}#1}}}
+\newcommand\TikZ{Ti\emph{k}Z}
+
+%%
+%% slides
+%%
+
+\begin{document}
+
+\title{\LaTeX}
+\subtitle{une courte introduction}
+\author{Franck Pommereau}
+\institute{Université Évry Val d'Essonne / Paris-Saclay}
+\date{L3 informatique}
+
+\begin{frame}
+  \titlepage
+  \centerline{\pix[height=2cm]{logo-ueve-upsay}}
+\end{frame}
+
+%%
+%%
+%%
+
+\section{Quoi? Pour qui? Pour quoi?}
+
+%%
+
+\begin{frame}{Qu'est-ce que \LaTeX?}
+  \begin{itemize}
+    \item un \alert{traitement de texte} au sens propre
+      \begin{itemize}
+        \item \emph{what you \underline{think} is what you get}
+          \> balisage logique des documents
+        \item mise en page \alert{automatique}
+          \> on se concentre sur le fond
+          \hfill\minor{(on laisse la forme au logiciel)}
+        \item \alert{qualité typographique exceptionnelle}
+      \end{itemize}
+    \item un langage de programmation
+      \begin{itemize}
+        \item invisible le plus souvent
+        \item virtuellement illimité
+        \item nombreuses \alert{tâches simplifiées}
+      \end{itemize}
+    \item une communauté
+      \begin{itemize}
+        \item des milliers d'extensions librement disponibles
+        \item abondance de documentation
+        \item aide disponible: collègues, forums, FAQ, \dots
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}{Historique}
+  \begin{description}
+    \item[1977] Donald Knuth développe \alert{{\TeX}} ($\tau\epsilon\chi$)
+      \begin{itemize}
+        \item bases du langage de programmation
+        \item moteur typographique
+        \item système de fontes
+        \end{itemize}
+    \item[1985] Leslie Lamport développe {\LaTeX}
+      \begin{itemize}
+        \item un ensemble d'\alert{extensions à \TeX}
+        \item \alert{simplifie} de nombreuses tâches
+        \item renforce la structure des documents
+        \item \alert{séparation entre structure logique et rendu graphique}
+      \end{itemize}
+    \item[1990\dots] {pdf\LaTeX} \> sortie en PDF
+    \item[2007] {lua\LaTeX} \hfill\minor{(version recommandée)}
+      \begin{itemize}
+        \item support d'Unicode \hfill\minor{(cf. juste après)}
+        \item support des fontes modernes
+        \item programmation en \tt{lua}
+      \end{itemize}
+    \end{description}
+\end{frame}
+
+%%
+
+\begin{frame}[t]{Interlude}{Codages du texte}
+  \begin{textblock}{5}(9,-2)
+    \pix[size=tight,opacityframe=1,scale=1.2,colframe=gray]{martine-utf-8}
+  \end{textblock}
+  \begin{itemize}
+  \item ASCII
+    \minor{états-unien}
+  \item ASCII étendus
+    \minor{langues européennes}
+  \item Unicode
+    \minor{tout (et n'importe quoi)}
+    \begin{itemize}
+    \item multiples encodages
+    \item UTF8 se standardise
+      \minor{compatible ASCII}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+%%
+
+\begin{frame}{Ressources}
+  \begin{itemize}
+  \item \url{http://www.latex-project.org}\\
+    site de référence sur \LaTeX, avec les instructions d'installation
+  \item \url{http://www.ctan.org}\\
+    \emph{the comprehensive {\TeX} archive network}
+  \item \url{http://www.gutenberg.eu.org}\\
+    groupe francophone des utilisateurs de \TeX, {\LaTeX}
+    \hfill\minor{(doc en français)}
+  \item \url{http://www.xm1math.net/texmaker}\\
+    éditeur multi-plateformes pour \LaTeX, avec toutes les aides nécessaires
+  \item \url{http://www.overleaf.com}\\
+    éditeur en ligne pour \LaTeX, avec partage de documents
+    \hfill\minor{(plus pas mal de doc)}
+  \item \url{http://tex.stackexchange.com}\\
+    forum d'aide sur \LaTeX
+  \item \url{http://www.texample.net}\\
+    des exemples de toutes sortes
+  \end{itemize}
+\end{frame}
+
+%%
+
+\begin{frame}{Quand préférer \LaTeX?}
+  \begin{textblock}{5}(12.5,-1.5)
+    \pix[width=25mm]{sd-card}
+  \end{textblock}
+  \begin{itemize}
+    \item documents \alert{complexes}
+      \begin{itemize}
+        \item tables et sommaires, références croisées, \dots
+        \item formules mathématiques
+      \end{itemize}
+    \item documents \alert{longs}
+      \begin{itemize}
+        \item thèses, mémoires, livres, etc. \hfill\minor{(ma thèse $+$ mon HDR $<$ 1Mo)}
+        \item mise en page et traitements rapides
+      \end{itemize}
+    \item documents \alert{durables et portables}
+      \begin{itemize}
+        \item compatibilité dans le temps et entre ordinateurs
+        \item format lisible sans logiciel particulier
+        \item pas besoin d'un ordinateur puissant
+      \end{itemize}
+    \item documents \alert{soignés}
+  \end{itemize}
+  \vfill
+  \begin{block}{Quand s'en passer?}
+    \begin{itemize}
+      \item mises en pages très visuelles
+        \hfill\minor{(ces diapos sont faites avec \LaTeX)}
+      \item documents jetables
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%%
+
+\begin{frame}{À qui s'adresse \LaTeX?}
+  \begin{itemize}
+  \item les informaticiennes
+  \item les mathématiciens
+  \item les scientifiques en général
+  \item \alert{quiconque souhaite concevoir et produire ses documents}
+  \item quiconque est prêt à l'effort initial
+    \begin{itemize}
+    \item la plupart des tâches sont simples à faire
+    \item ça se complique seulement si on veut du compliqué
+    \end{itemize}
+  \end{itemize}
+  \vfill
+  \begin{block}{À qui le déconseiller?}
+    \begin{itemize}
+    \item les impatientes \minor{(et qui ont du temps à perdre)}
+    \item ceux qui n'en ont pas besoin \minor{(ou qu'on ne veut pas
+      aider plus tard)}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%%
+%%
+%%
+
+\section{Les bases}
+
+%%
+
+\begin{frame}{Édition et compilation}
+  \begin{center}
+    \begin{tikzpicture}[xscale=7,yscale=-3]
+      \node(tex) at (0,0) {\scalebox{6}{\mdi{file-document-outline}}};
+      \node(pdf) at (1,0) {\scalebox{6}{\mdi{file-image-outline}}};
+      \node(aux) at (1,1) {\color{minorcolor}\scalebox{6}{\mdi{file-multiple-outline}}};
+      \draw[->](tex)--node[above]{\relsize{1}\tt{lualatex mondoc}}(pdf);
+      \node[left] at (tex.west) {\tt{mondoc.tex}};
+      \node[right] at (pdf.east) {\tt{mondoc.pdf}};
+      \node[right,text width=15mm] at (aux.east) {\color{minorcolor}
+        \tt{mondoc.aux}\\
+        \tt{mondoc.log}\\
+        \tt{...}};
+    \end{tikzpicture}
+    \vfill
+    \centerline{(c'est automatisé par les éditeurs)}
+  \end{center}
+\end{frame}
+
+%%
+  
+\begin{latex}[tpl=None]{hello-mini}
+  \documentclass{article}
+  \begin{document}
+    Hello world!
+  \end{document}
+\end{latex}
+ 
+\begin{frame}[fragile]{Hello world!}
+  \pygpdf[.33\textwidth]{hello-mini}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=None]{hello-article}
+  \documentclass{article}
+  \begin{document}
+
+  \title{Mon premier document}
+  \author{Franck Pommereau}
+  \date{1 septembre 2023}
+  \maketitle
+
+  \section{Hello world!}
+
+  Où je dis bonjour.
+
+  \section{Bye bye world\dots}
+
+  Où je dis au revoir.
+
+  \end{document}
+\end{latex}
+
+\begin{frame}{Hello world!}{Le retour}
+  \vspace*{-3mm}
+  \begin{multicols}{2}
+    \relsize{-1}
+    \pyg{hello-article}
+    \columnbreak
+    \pdf[width=.33\textwidth]{hello-article}
+  \end{multicols}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=None]{hello-beamer}
+  \documentclass{beamer}
+  \begin{document}
+
+  \title{Mon premier document}
+  \author{Franck Pommereau}
+  \date{1 septembre 2023}
+  \maketitle
+
+  \section{Hello world!}
+
+  Où je dis bonjour.
+
+  \section{Bye bye world\dots}
+
+  Où je dis au revoir.
+
+  \end{document}
+\end{latex}
+
+\begin{frame}{Hello world!}{Le retour de la vengeance}
+  \vspace*{-3mm}
+  \begin{multicols}{2}
+    \relsize{-1}
+    \pyg{hello-beamer}
+    \columnbreak
+    \pdf[width=\columnwidth]{hello-beamer}
+  \end{multicols}
+\end{frame}
+
+\begin{latex}[tpl=standalone,textwidth=5cm]{input}
+espaces     multiples
+     et sauts
+   de
+lignes = une espace
+% commentaire
+% ignoré mais utile!
+
+ligne vide = nouveau paragraphe
+\end{latex}
+
+\begin{latex}[pdf=False]{catcodes}
+  # $ & ~ _ ^ \ { } %
+\end{latex}
+
+\begin{frame}{Comment {\LaTeX} lit ce que vous tapez?}
+  \pygpdf{input}
+  \vfill
+  \begin{block}{Caractères spéciaux}
+    \pyg{catcodes}
+  \end{block}
+\end{frame}
+
+%%
+
+\begin{latex}[pdf=False]{macros}
+  \documentclass
+  \;  \!  \\
+\end{latex}
+
+\begin{latex}[pdf=False]{macros-args}
+  \title{Mon titre}
+\end{latex}
+
+\begin{latex}[pdf=False]{macros-opts}
+  \documentclass[12pt]{article}
+\end{latex}
+
+\begin{latex}[pdf=False]{envs}
+  \begin{center}
+    \begin{small}
+      texte
+    \end{small}
+  \end{center}
+\end{latex}
+
+\begin{frame}{Commandes et environnements}
+  \begin{multicols}{2}
+    \begin{itemize}
+      \item commandes (macros): \pyg{macros}
+      \begin{itemize}
+        \item arguments: \pyg{macros-args}
+        \item options: \pyg{macros-opts}
+      \end{itemize}
+  \columnbreak
+    \item environnements: \pyg{envs}
+      \begin{itemize}
+        \item toujours respecter l'imbrication
+        \item un bon éditeur de texte aide (l'indentation aussi)
+      \end{itemize}
+    \end{itemize}
+  \end{multicols}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=5cm,obeylines=True]{spaces}
+  \dots hello
+  \dots{} hello
+  {\dots} hello
+\end{latex}
+
+\begin{frame}[fragile]{Attention aux espaces!}{après les commandes}
+  \pygpdf[.8\columnwidth]{spaces}
+\end{frame}
+
+%%
+
+\begin{latex}[pdf=False]{doc}
+  \documentclass[OPTIONS]{CLASSE}
+    %%% entête (ou préambule)
+    % déclarations, configuration, etc. (aucun contenu)
+  \begin{document}
+    %%% titre, auteur, etc.
+    \title{TITRE DU DOCUMENT}
+    \author{AUTEURS}
+    \date{DATE}
+    \maketitle
+
+    %%% corps du document
+    % sections, texte, figures, etc.
+  \end{document}
+\end{latex}
+
+\begin{frame}{Structure d'un document}
+  \pyg{doc}
+\end{frame}
+
+%%
+
+\begin{frame}{Classes}
+  \begin{description}
+    \item[article] document court (article de revue ou de conférence)
+    \item[report] documents un peu plus long (rapports de recherche)
+    \item[book] document long (parties, chapitres, sauts de pages, etc.)
+    \item[letter] courrier (salutations, adresses, etc.)
+    \item[beamer] présentation à projeter (comme maintenant)
+    \item[$\cdots$] classe fournie par un éditeur
+  \end{description}
+  \begin{block}{Quelques options courantes}
+    \begin{description}
+      \item[a4paper] pour avoir des pages A4 ($21 \times 29.7$ cm)
+      \item[10pt, \dots] taille par défaut du texte
+      \item[oneside] pour l'impression recto simple\dots
+      \item[twoside] {\dots} ou recto-verso
+    \end{description}
+  \end{block}
+\end{frame}
+
+%%
+
+\begin{latex}[pdf=False]{packages}
+  % documents en français
+  \usepackage[french]{babel}
+
+  % symboles et fontes mathématiques supplémentaires
+  \usepackage{amssymb}
+
+  % documents multi-colonnes
+  \usepackage{multicol}
+
+  % inclusion d'images et texte en couleur
+  \usepackage{graphicx}
+  \usepackage{xcolors}
+
+  % dessin de figures directement dans LaTeX
+  \usepackage{tikz}
+\end{latex}
+
+\begin{frame}[fragile]{Paquetages d'extensions}
+  \pyg{packages}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=52mm]{text}
+  texte mis \emph{en valeur}
+  ou \textit{en italique},
+  \textbf{gras},
+  \textbf{gras et
+    \textit{italique}},
+  \textsc{petites capitales},
+  {\small plus petit},
+  {\large plus grand},
+  {\tiny vraiment très petit},
+  {\Large vraiment très grand},
+  {\LARGE de plus} {\huge en plus}
+  {\Huge grand.}
+  \textit{texte correctement
+    \emph{mis en valeur}
+    dans de l'italique}
+\end{latex}
+
+\begin{frame}{Styles de texte}
+  \vspace*{-3mm}
+  \pygpdf{text}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=5cm,obeylines=True]{ligs}
+  fin / f{i}n
+  effet / e{f}fet
+  efficace / ef{f}icace
+  fleur / f{l}eur
+  oeuf / {\oe}uf
+  encyclopaedia / encyclop{\ae}dia
+  tiret simple -
+  demi quadratin --
+  quadratin ---
+  moins $-$
+  \'{E} \c{s} \^{z} \r{a} \l
+\end{latex}
+
+\begin{frame}{Ligatures et diacritiques}
+  \vspace*{-3mm}
+  \pygpdf{ligs}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=5cm]{lists}
+  \begin{itemize}
+  \item un premier item;
+  \item suivi d'un second:
+    \begin{itemize}
+    \item avec une imbrication,
+    \item de sous-items.
+    \end{itemize}
+  \end{itemize}
+
+  \begin{enumerate}
+  \item Même principe.
+  \item Et là aussi:
+    \begin{enumerate}
+    \item on peut imbriquer;
+    \item comme on veut.
+    \end{enumerate}
+  \end{enumerate}
+\end{latex}
+
+\begin{frame}{Listes et énumérations}
+  \relsize{-1}
+  \pygpdf{lists}
+\end{frame}
+
+%%
+%%
+%%
+
+\section{Sommaires, références, bibliographie}
+
+%%
+
+\begin{latex}[pdf=False]{sections}
+  % seulement dans la classe book
+  \part{Titre de partie}
+  \chapter{Titre de chapitre}
+  % partout
+  \section{Titre de section}
+  \subsection{Titre de sous-section}
+  \subsubsection{Titre de sous-sous-section}
+  \paragraph{Titre de paragraphe}
+\end{latex}
+
+\begin{latex}[pdf=False]{sections-star}
+  % sans numéro
+  \section*{Titre de section non numéroté}
+\end{latex}
+
+\begin{frame}{Découpage en sections}
+  \pyg{sections}
+  \begin{itemize}
+    \item numérotation automatique
+      \pyg{sections-star}
+    \item style adapté par chaque classe
+    \item hyper-liens et navigation PDF rapide
+      \hfill\minor{(automatique avec lua\LaTeX)}
+  \end{itemize}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=10cm]{toc}
+  % remplace "Table des matières"
+  \def\contentsname{Sommaire}
+  \tableofcontents
+
+  \begin{abstract}
+    Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit.
+    Cras condimentum mauris nec
+    est tempus viverra.
+  \end{abstract}
+
+  \section{Introduction}
+  \section{Problématique}
+  \subsection{Thèse}
+  \subsection{Antithèse}
+  \subsection{Synthèse}
+  \section{Conclusion}
+\end{latex}
+
+\begin{frame}{Sommaires et tables des matières}
+  \vspace*{-2mm}
+  \relsize{-1}
+  \pygpdf[.9\columnwidth]{toc}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=10cm]{refs}
+  \section{Introduction}
+  Cet article commence à la
+  section~\ref{sec:general}\dots
+
+  \section{Présentation générale}
+  \label{sec:general}
+  Blah, blah\dots
+
+  \subsection{Sujet principal}
+  \label{sec:sujet}
+  Blah, blah\dots
+
+  \section{Conclusion}
+  On a vu des choses à la
+  section~\ref{sec:general}
+  page~\pageref{sec:general},
+  en effet, la
+  section~\ref{sec:sujet}\dots
+\end{latex}
+
+\begin{frame}{Références croisées}
+  \vspace*{-2mm}
+  \relsize{-1}
+  \pygpdf{refs}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=5cm,latex=pdflatex]{refs-one}
+  Prochaine: \ref{sec:ma-section}
+  \section{Ma section}
+  \label{sec:ma-section}
+\end{latex}
+
+\begin{latex}[tpl=standalone,textwidth=5cm,pyg=False]{refs-two}
+  Prochaine: \ref{sec:ma-section}
+  \section{Ma section}
+  \label{sec:ma-section}
+\end{latex}
+
+\begin{frame}[fragile]{Résolution des références en avant}
+  \begin{multicols}{2}
+    \pyg{refs-one}
+    \columnbreak
+    \begin{itemize}
+      \item après une seule compilation
+        \pdf[width=5cm]{refs-one}
+      \item après deux compilations
+        \pdf[width=5cm]{refs-two}
+    \end{itemize}
+  \end{multicols}
+\end{frame}
+
+%%
+
+\begin{latex}[pdf=False]{bib-cite}
+  L'article~\cite{MonArticle} en résume
+  deux autres~\cite{Article1,Article2}.
+\end{latex}
+
+\begin{latex}[pdf=False]{bib-make}
+  \bibliographystyle{plain}
+  \bibliography{mabiblio}
+\end{latex}
+
+\begin{frame}{Bibliographie}
+  \begin{itemize}
+  \item {\BibTeX} à la rescousse de {\LaTeX}
+  \item le fichier {\LaTeX} contient:
+    \begin{itemize}
+    \item des références bibliographiques:
+      \pyg{bib-cite}
+    \item un lien vers la bibliographie:
+      \pyg{bib-make}
+    \end{itemize}
+  \item \tt{mabiblio.bib} contient les données bibliographiques
+  \item on compile en quatre temps:
+    \begin{tabbing}
+    \* \tt{latex doc} \quad\=\minor{(mémorise les articles cités)}\\
+    \* \tt{bibtex doc} \>\minor{(génère la liste de références)}\\
+    \* \tt{latex doc} \>\minor{(insère la liste de références)}\\
+    \* \tt{latex doc} \>\minor{(résout les références en avant)}
+    \end{tabbing}
+  \item si on ne change pas de référence: une seule compilation suffit
+  \end{itemize}
+\end{frame}
+
+%%
+%%
+
+\begin{latex}[tpl=article-crop,textwidth=95mm,files=mabiblio.bib]{bib-plain}
+  L'article \cite{MonArticle}
+  en synthétise deux
+  autres \cite{Article1,Article2}.
+
+  \bibliographystyle{plain}
+  \bibliography{mabiblio}
+\end{latex}
+
+\begin{latex}[tpl=article-crop,textwidth=95mm,files=mabiblio.bib]{bib-alt}
+  L'article \cite{MonArticle}
+  en synthétise deux
+  autres \cite{Article1,Article2}.
+
+  \bibliographystyle{apalike}
+  \bibliography{mabiblio}
+\end{latex}
+
+\begin{frame}{Des références et du style}
+  \vspace*{-2mm}
+  \relsize{-1}
+  \begin{multicols}{2}
+    \pyg{bib-plain}
+    \columnbreak
+    \pyg{bib-alt}
+  \end{multicols}
+  \begin{multicols}{2}
+    \pdf{bib-plain}
+    \columnbreak
+    \pdf{bib-alt}
+  \end{multicols}
+\end{frame}
+
+%%
+%%
+
+\begin{frame}{Fichiers {\BibTeX} (\tt{mabiblio.bib})}
+  \let\listingsize=\scriptsize
+  \verbinput{mabiblio.bib}
+\end{frame}
+
+%%
+%%
+%%
+
+\section{Figures et images}
+
+%%
+
+\begin{latex}[tpl=article-crop,textwidth=9cm]{figs}
+  \begin{figure}
+    \centerline{\fbox{Un beau dessin!}}
+    \caption{Légende instructive.}
+  \end{figure}
+
+  Beaucoup de texte, en quantité
+  incroyable, de manière à produire
+  au moins une ligne complète.
+
+  \begin{figure}
+    \centerline{\fbox{Une photo!}}
+    \caption{Légende utile.}
+  \end{figure}
+\end{latex}
+
+\begin{frame}{Figures}{\tt{=} blocs flottants}
+  \begin{multicols}{2}
+    \pyg{figs}
+    \columnbreak
+    \pdf{figs}
+    \begin{itemize}
+      \item \macro{centerline} \> centre une ligne
+      \item \macro{fbox} \> encadre
+      \item remarquez l'ordre des trois blocs
+    \end{itemize}
+  \end{multicols}
+\end{frame}
+
+%%
+
+\begin{latex}[pdf=False]{floats}
+  \begin{figure}[t] % en haut (si possible)
+  ...
+
+  \begin{figure}[h] % ici même (si possible)
+  ...
+
+  \begin{figure}[b] % en bas (si possible)
+  ...
+
+  \begin{figure}[p] % sur une page complète (si possible)
+  ...
+
+  \begin{figure}[t!] % en haut quoi qu'il arrive
+  ...
+
+  \begin{figure}[tb] % en haut si possible, sinon en bas
+                     % (sinon débrouille toi)
+  ...
+\end{latex}
+
+\begin{frame}{Placement des éléments flottants}
+  \relsize{-1}
+  \pyg{floats}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=9cm,files=pix/logo-*.pdf]{pics}
+  % \usepackage{graphicx}
+  \includegraphics[width=4cm,keepaspectratio=true]{pix/logo-ueve}
+  \hspace{1cm} % espace horizontale
+  \includegraphics[width=4cm,keepaspectratio=true]{pix/logo-ibisc}
+\end{latex}
+
+\begin{frame}{Inclusion d'images externes}
+  \pyg{pics}
+  \vfill
+  \centerline{\pdf[scale=.6]{pics}}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=8cm]{tikz-inline}
+  Dessin \tikz\draw[rounded corners](0,0)--(1,.5)--(2,0); dans le texte.
+\end{latex}
+
+\begin{latex}[tpl=standalone,textwidth=4cm]{tikz-block}
+  \begin{tikzpicture}[xscale=2]
+    \node[draw,circle,very thick] (A) at (0,0) {$A$};
+    \node[draw,circle,densely dotted] (B) at (1,1) {$B$};
+    \draw[->](A)--(B);
+  \end{tikzpicture}
+\end{latex}
+
+\begin{frame}{Dessins avec \TikZ}
+  \pyg{tikz-inline}
+  \vfill
+  \centerline{\pdf[width=.5\textwidth]{tikz-inline}}
+  \vfill
+  \pyg{tikz-block}
+  \centerline{\pdf[width=.25\textwidth]{tikz-block}}
+\end{frame}
+
+%%
+%%
+%%
+
+\end{document}
