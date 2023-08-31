@@ -6,7 +6,6 @@ Par ailleurs, le sous-répertoire `cours` contient les éléments projetés en c
 
  * `markdown.md` courte introduction à Markdown
  * `git/git.html` introduction à git
- * `latex/slides.pdf` introduction à LaTeX
 
 ## Contributions attendues
 
@@ -54,14 +53,3 @@ C'est un peu plus compliqué mais ça vaut le coup d'apprendre cette technique u
    * [Le site de référence](https://git-scm.com/)
    * [L'aide de Codeberg](https://docs.codeberg.org/)
    * [La page Wikipedia](https://fr.wikipedia.org/wiki/Git)
-
-## Licence
-
-Tout le contenu de ce dépôt est (C) Franck Pommereau <franck.pommereau@univ-evry.fr> sous licence _Creative Commons - Attribution ShareAlike_ à l'exception des images dans `cours/latex/pix` (voir `cours/latex/pix/LICENCE.md`).
-La licence est détaillée dans le fichier `LICENCE` et en résumé, vous autorise à:
- * copier et redistribuer le matériel de ce dépôt
- * le modifier, le transformer, et le redistribuer
-
-Sous les deux conditions suivantes:
- * l'auteur original est cité et vous devez indiquer si vous avez fait des changements
- * si vous redistribuez la version originale ou une version modifiée, vous devez conserver la licence
