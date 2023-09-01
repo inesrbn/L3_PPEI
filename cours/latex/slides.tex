@@ -1,6 +1,5 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[french,aspectratio=169]{beamer}
 
-\usepackage[francais]{babel}
 \usepackage[no-math]{fontspec}
 \usepackage{textpos}
 \usepackage{amssymb}
@@ -9,6 +8,7 @@
 \usepackage{etoolbox}
 \usepackage{mdi}
 \usepackage{multicol}
+\usepackage{babel}
 
 %%
 %% beamer
@@ -23,7 +23,7 @@
   \end{frame}}
 
 \renewcommand\insertheadline{%
-  \insertheadlinepart{.5}{left}{white}{\insertshortauthor
+  \insertheadlinepart{.5}{left}{white}{{\insertshortauthor} / \LaTeX
     \edef\SECTION{{\insertsection}}%
     \expandafter\ifblank\SECTION{}{ / \insertsection}}
   \insertheadlinepart{.5}{right}{white}{{\insertframenumber} / {\inserttotalframenumber}}
@@ -86,6 +86,8 @@
   \documentclass[varwidth{{=TEXTWIDTH}}]{standalone}
   \usepackage[francais]{babel}
   \usepackage{graphicx}
+  \usepackage{amssymb}
+  \usepackage{unicode-math}
   \usepackage{tikz}
   \pagestyle{empty}
   \parindent=0pt
@@ -97,7 +99,10 @@
 \begin{template}{article-crop}
   \documentclass{article}
   \usepackage[francais]{babel}
+  \usepackage{multirow,bigstrut}
   \usepackage{graphicx}
+  \usepackage{amssymb}
+  \usepackage{unicode-math}
   \usepackage{tikz}
   \pagestyle{empty}
   \parindent=0pt
@@ -222,7 +227,6 @@
   \end{itemize}
 \end{frame}
 
-
 %%
 
 \begin{frame}{Ressources}
@@ -231,7 +235,7 @@
     site de référence sur \LaTeX, avec les instructions d'installation
   \item \url{http://www.ctan.org}\\
     \emph{the comprehensive {\TeX} archive network}
-  \item \url{http://www.gutenberg.eu.org}\\
+  \item \url{http://www.gutenberg-asso.fr}\\
     groupe francophone des utilisateurs de \TeX, {\LaTeX}
     \hfill\minor{(FAQ et doc en français)}
   \item \url{http://www.xm1math.net/texmaker}\\
@@ -239,8 +243,8 @@
   \item \url{http://www.overleaf.com}\\
     éditeur en ligne pour \LaTeX, avec partage de documents
     \hfill\minor{(plus pas mal de doc)}
-  \item \url{http://tex.stackexchange.com}\\
-    forum d'aide sur \LaTeX
+  \item \url{http://tex.stackexchange.com} et \url{http://texnique.fr}\\
+    deux forums d'aide sur {\LaTeX} en anglais et français
   \item \url{http://www.texample.net}\\
     des exemples de toutes sortes
   \end{itemize}
@@ -532,10 +536,13 @@ ligne vide = nouveau paragraphe
 
 \begin{latex}[pdf=False]{packages}
   % documents en français
-  \usepackage[french]{babel}
+  \documentclass[french]{...}
+  \usepackage{babel}  % après les autres
 
-  % symboles et fontes mathématiques supplémentaires
+  % symboles/fontes/commandes mathématiques supplémentaires
   \usepackage{amssymb}
+  \usepackage{mathtools}
+  \usepackage{unicode-math}
 
   % documents multi-colonnes
   \usepackage{multicol}
@@ -549,6 +556,7 @@ ligne vide = nouveau paragraphe
 \end{latex}
 
 \begin{frame}[fragile]{Paquetages d'extensions}
+  \relsize{-1}
   \pyg{packages}
 \end{frame}
 
@@ -580,17 +588,20 @@ ligne vide = nouveau paragraphe
 %%
 
 \begin{latex}[tpl=standalone,textwidth=5cm,obeylines=True]{ligs}
-  fin / f{i}n
-  effet / e{f}fet
-  efficace / ef{f}icace
-  fleur / f{l}eur
+  % LaTeX fait les choses bien
+  fin / f{\null}in
+  effet / e{\null}ffet
+  efficace / ef{\null}ficace
+  fleur / f{\null}leur
+  % on peut lui demander des caractères
   oeuf / {\oe}uf
   encyclopaedia / encyclop{\ae}dia
+  \'{E} \c{s} \^{z} \r{a} \l
+  % le cas des tirets
   tiret simple -
   demi quadratin --
   quadratin ---
   moins $-$
-  \'{E} \c{s} \^{z} \r{a} \l
 \end{latex}
 
 \begin{frame}{Ligatures et diacritiques}
@@ -928,6 +939,332 @@ ligne vide = nouveau paragraphe
 \end{frame}
 
 %%
+%%
+%%
+
+\appendix
+
+\AtBeginSection[]{
+  \begin{frame}<beamer>{Annexes}
+    \setcounter{tocdepth}{2}
+    \tableofcontents[currentsection]
+  \end{frame}}
+
+\renewcommand\insertheadline{%
+  \insertheadlinepart{.5}{left}{white}{{\insertshortauthor} / {\LaTeX} / Annexes
+    \edef\SECTION{{\insertsection}}%
+    \expandafter\ifblank\SECTION{}{ / \insertsection}}
+  \insertheadlinepart{.5}{right}{white}{{\insertframenumber} / {\inserttotalframenumber}}
+}
+
+%%
+%%
+%%
+
+\section{Mathématiques}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=55mm]{maths}
+  Formule dans le texte,
+  par exemple $x = y + 1$;
+  ou bien en vedette, comme
+  \[ E = m c^2 \]
+  qu'on peut aussi écrire
+  $$E = m c^2$$
+  (c'est exactement pareil).
+\end{latex}
+
+\begin{frame}{\emph{Inline} et \emph{display}}
+  \pygpdf{maths}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=5cm,obeylines=True]{maths-cmd}
+  $\frac{1}{2^n} + 1$
+  $2^{n+1} \neq 2^n+1$
+  $(x_n)_{n \geq 0}$
+  ${x_k}_i \to (x_k)^i$
+  $\sqrt{\sin(x)}$
+  $\{x^2 \mid 0 \leq x < 10\}$
+  % \usepackage{unicode-maths}
+  $\mathbb{N} \times \mathbb{R}$
+  $\forall (x,y) \in \mathbb{R}^2$
+\end{latex}
+
+\begin{frame}{Fractions, exposants, indices, symboles, \dots}
+  \pygpdf[.7\columnwidth]{maths-cmd}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=5cm,obeylines=True]{maths-alt}
+  $\sqrt{2}x$ ou $\sqrt{2}\,x$
+  $E = m c^2$ ou $E = m\,c^2$
+  $x^2/2$ ou $x^2\!/2$
+  $\Gamma_2$ ou $\Gamma_{\!2}$
+  $x_1, \dots, x_n$
+  ou $x_1, \cdots, x_n$
+  $x_1 + \dots + x_n$
+  ou $x_1 + \cdots + x_n$
+\end{latex}
+
+\begin{frame}{Réglages typographiques}
+  \vspace*{-3mm}
+  \pygpdf{maths-alt}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=article-crop,textwidth=8cm]{eqs}
+  Une équation fondamentale:
+  \begin{equation}
+    E = m\,c^2  \label{eq:Emc2}
+  \end{equation}
+
+  Mais il existe aussi:
+  \begin{equation}
+    F = m\,a
+  \end{equation}
+
+
+
+  Ou encore:
+  \begin{eqnarray}
+    \sin(a-b) & = & \sin a\,\cos b - \sin b\,\cos a \\
+    (a+b)^2   & = & a^2 + 2\,a\,b + b^2  \label{eq:carre}
+  \end{eqnarray}
+
+  On a vu les équations (\ref{eq:Emc2}) à (\ref{eq:carre}).
+\end{latex}
+
+\begin{frame}[t]{Équations numérotées}
+  \vspace*{-5mm}
+  \relsize{-1}
+  \pygpdf{eqs}
+\end{frame}
+
+%%
+%%
+%%
+
+\section{Blocs de structure}
+
+\begin{latex}[tpl=standalone,textwidth=7cm]{footnotes}
+  Il ne faut jamais remettre au
+  lendemain\footnote{Ou même
+    après.} ce qu'on pourrait
+  faire la veille ou plus
+  tard.\footnote{Et
+    réciproquement.} Enfin, ça
+  dépend\dots
+\end{latex}
+
+\begin{frame}{Notes en base de page}
+  \pygpdf{footnotes}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=article-crop,textwidth=9cm]{tables}
+  \begin{table}
+    \caption{Oh la belle table!}
+    \begin{center}
+      \begin{tabular}{ccc}
+        \hline
+        la & belle & table \\
+        \hline
+      \end{tabular}
+    \end{center}
+  \end{table}
+\end{latex}
+
+%%
+
+\begin{frame}{Tables flottants}
+  \begin{itemize}
+    \item environnement \tt{table}
+    \item fonctionne exactement comme \tt{figure}
+    \item met on met souvent la légende au dessus
+  \end{itemize}
+  \pygpdf{tables}
+\end{frame}
+
+%%
+
+\begin{latex}[tpl=standalone,textwidth=8cm]{theorem}
+  % \usepackage{theorem}
+  % dans le préambule:
+  \newtheorem{lemma}{Lemme}
+  \newtheorem{theorem}{Théorème}
+  \newtheorem{proof}{Preuve}
+
+  % dans le corps du document:
+  \begin{lemma}
+  Les Grecs sont des hommes.
+  \label{lem:grecs}
+  \end{lemma}
+
+  \begin{lemma}
+  Tous les hommes sont mortels.
+  \label{lem:mortel}
+  \end{lemma}
+
+  \begin{theorem}[Aristote]
+  Les Grecs sont mortels.
+  \label{the:trop-mortel}
+  \end{theorem}
+
+  \begin{proof}
+    Découle directement des lemmes
+    \ref{lem:grecs} et \ref{lem:mortel}.
+  \end{proof}
+\end{latex}
+
+\begin{frame}[t]{Définitions, théorèmes, etc.}
+  \begin{textblock}{8}(7,7.5)
+    \pdf[width=\columnwidth]{theorem}
+  \end{textblock}
+  \vspace*{-5mm}
+  \relsize{-1}
+  \begin{multicols}{2}
+    \pyg{theorem}
+    \vspace*{3cm}
+  \end{multicols}
+\end{frame}
+
+%%
+%%
+%%
+
+\section{Tableaux}
+
+%%
+%%
+
+\begin{frame}{Tableaux et langages à balises}
+  \begin{itemize}
+    \item texte balisé \> structure linéaire à \alert{1 dimension}
+    \item tableau \> structure tabulaire à \alert{2 dimensions}
+    \item solution universelle: des balises pour délimiter les lignes/colonnes\\
+      \> vrai en HTML, Markdown, reStructuredText, \dots, et \LaTeX
+    \item conséquence: c'est lourd \minor{(comparé à une interface type tableur)}
+    \item heureusement: on a des outils pour aider
+  \end{itemize}
+\end{frame}
+
+%%
+%%
+
+\begin{latex}[tpl=standalone,textwidth=15cm]{tabular}
+  \begin{tabular}{|l|c|r|}
+    \hline
+    Exemple      & Langue            & Remarque \\
+    \hline
+    hello world  & anglais           & seuls les informaticiens parlent comme ça \\
+    salut        & français familier & pour bonjour ou au revoir \\
+    $E = m\,c^2$ & mathématiques     & surtout employé par les physiciennes \\
+    \hline
+  \end{tabular}
+\end{latex}
+
+\begin{frame}{Tableaux de texte}
+  \relsize{-1}
+  \pyg{tabular}
+  \vfill
+  \pdf[width=\textwidth]{tabular}
+\end{frame}
+
+%%
+%%
+
+\begin{latex}[tpl=article-crop,textwidth=8cm]{array}
+  \[
+  \begin{array}{|r|c|cc|}
+    \hline
+                          & x & x^2 & x^3 \\
+    \hline
+    \mbox{petit}          & 2 & 4   & 8 \\
+    \mbox{moyen}          & 3 & 9   & 27 \\
+    \mbox{pas très grand} & 5 & 25  & 125 \\
+    \mbox{grand}          & 7 & 49  & 343 \\
+    \hline
+  \end{array}
+  \]
+\end{latex}
+
+\begin{frame}[t]{Tableaux de maths}
+  \begin{textblock}{7.5}(7.7,6)
+    \begin{tikzpicture}
+      \node[inner sep=0pt] (tab) {\pdf[width=\columnwidth]{array}};
+      \uncover<2>{
+        \draw[red,line width=1mm,rounded corners,opacity=.4] 
+          (tab.north west) rectangle +(4.2,-1);
+        \draw[red,line width=1mm,rounded corners,opacity=.4] 
+          (tab.north) +(1.8,-.2) circle (3mm);
+        \draw[red,line width=1mm,rounded corners,opacity=.4] 
+          (tab.north) +(3,-.2) circle (3mm);
+      }
+    \end{tikzpicture}
+  \end{textblock}
+  \vspace*{-4mm}
+  \relsize{-1}
+  \pyg{array}
+\end{frame}
+
+%%
+%%
+
+\begin{latex}[tpl=article-crop,textwidth=8cm]{array-alt}
+  % dans le préambule: \usepackage{multirow,bigstrut}
+  \[
+    \begin{array}{|r|c|cc|}
+       \cline{2-4}
+       \multicolumn{1}{c|}{} & x & x^2 & x^3 \bigstrut[t] \\
+       \hline
+       \mbox{petit}          & 2 & 4   & 8 \\
+       \mbox{moyen}          & 3 & 9   & 27 \\
+       \mbox{pas très grand} & 5 & 25  & 125 \\
+       \mbox{grand}          & 7 & 49  & 343 \\
+       \hline
+    \end{array}
+  \]
+\end{latex}
+
+\begin{frame}[t]{Mise en forme précise}
+  \begin{textblock}{7.5}(7.7,6)
+    \begin{tikzpicture}
+      \node[inner sep=0pt] (tab) {\pdf[width=\columnwidth]{array-alt}};
+      \draw[red,line width=1mm,rounded corners,opacity=.2] 
+        (tab.north west) rectangle +(4.2,-1);
+      \draw[red,line width=1mm,rounded corners,opacity=.2] 
+        (tab.north) +(1.8,-.2) circle (3mm);
+      \draw[red,line width=1mm,rounded corners,opacity=.2] 
+        (tab.north) +(3,-.2) circle (3mm);
+    \end{tikzpicture}
+  \end{textblock}
+  \vspace*{-4mm}
+  \relsize{-1}
+  \pyg{array-alt}
+\end{frame}
+
+%%
+
+\begin{frame}{Un peu d'assistance}
+  \begin{itemize}\itemsep=1em
+  \item \url{http://www.latex-tables.com}\\
+    \url{http://www.tablesgenerator.com}\\
+    des tableurs en ligne qui génèrent le code source \LaTeX
+  \item \url{http://extensions.openoffice.org/en/project/calc2latex-macro-converting-openofficeorg-calc-spreadsheets-latex-tables}\\
+    greffon pour LibreOffice Calc pour export des tableau vers \LaTeX
+  \item \url{http://ctan.org/tex-archive/support/excel2latex}\\
+    la même chose pour Excel
+  \item \url{http://www.ctan.org/pkg/booktabs}\\
+    un paquetage {\LaTeX} (et des conseils) pour améliorer la composition des tableaux
+  \end{itemize}
+\end{frame}
+
 %%
 %%
 
