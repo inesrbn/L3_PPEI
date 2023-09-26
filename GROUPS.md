@@ -28,5 +28,5 @@ Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
  * Rabah Ouafi [Rabah](https://codeberg.org/Rabah)
  * Amine Mamma [Amine1023] (https://codeberg.org/Amine1023)
 
- Nous avons traité _(Le sujet est encore en réflexion)_.
+ Nous avons traité _La Blockchain, qu'est ce que c'est ? En quoi est-ce une révolution ?_.
 
