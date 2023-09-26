@@ -18,3 +18,15 @@ Le groupe _Exemple_ (sous-répertoire `exemple`) est composé de:
  * (et au plus quatre)
 
 Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_.
+
+## CodeRise
+
+Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
+
+ * Bastien Teisseire [LightSulivy](https://codeberg.org/LightSulivy)
+ * Elina Girot [elinagirot](https://codeberg.org/elinagirot)
+ * Rabah Ouafi [Rabah](https://codeberg.org/Rabah)
+ * Amine Mamma [null] (https://codeberg.org/null)
+
+ Nous avons traité _(Le sujet est encore en réflexion)_.
+
