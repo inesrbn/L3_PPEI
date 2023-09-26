@@ -26,7 +26,7 @@ Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
  * Bastien Teisseire [LightSulivy](https://codeberg.org/LightSulivy)
  * Elina Girot [elinagirot](https://codeberg.org/elinagirot)
  * Rabah Ouafi [Rabah](https://codeberg.org/Rabah)
- * Amine Mamma [null] (https://codeberg.org/null)
+ * Amine Mamma [Amine1023] (https://codeberg.org/Amine1023)
 
  Nous avons traité _(Le sujet est encore en réflexion)_.
 
