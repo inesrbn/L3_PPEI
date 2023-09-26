@@ -26,7 +26,7 @@ Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
  * Bastien Teisseire [LightSulivy](https://codeberg.org/LightSulivy)
  * Elina Girot [elinagirot](https://codeberg.org/elinagirot)
  * Rabah Ouafi [Rabah](https://codeberg.org/Rabah)
- * Amine Mamma [Amine1023] (https://codeberg.org/Amine1023)
+ * Amine Mamma [Amine1023](https://codeberg.org/Amine1023)
 
  Nous avons traité _La Blockchain, qu'est ce que c'est ? En quoi est-ce une révolution ?_.
 
