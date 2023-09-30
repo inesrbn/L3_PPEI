@@ -18,3 +18,13 @@ Le groupe _Exemple_ (sous-répertoire `exemple`) est composé de:
  * (et au plus quatre)
 
 Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_.
+
+## LAK
+
+Le groupe _LAK_ (sous-répertoire `LAK`) est composé de:
+
+ * Laura BOURDON [Totoro](https://codeberg.org/Totoro)
+ * Alexis XIONG []()
+ * Vo Minh Khue HO []()
+
+Nous avons traité _Instagram_.
