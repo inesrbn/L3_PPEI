@@ -24,9 +24,9 @@ Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_
 Le groupe THGF (sous répertoire `thgf`) est composé de:
 
  * Baker Thomas [thomaas](https://codeberg.org/thomaas)
- *  [ibsjti](https://codeberg.org/ibsjti)
+ *  Sattia Harish [ibsjti](https://codeberg.org/ibsjti)
  *  [fati](https://codeberg.org/fati)
  * // [Amine1023](https://codeberg.org/Amine1023)
 
- Nous avons traité _La Blockchain, qu'est ce que c'est ? En quoi est-ce une révolution ?_.
+ Nous avons traité _L'informatique Quantique_.
 
