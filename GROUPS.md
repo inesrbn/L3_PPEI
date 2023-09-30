@@ -25,6 +25,6 @@ Le groupe _LAK_ (sous-répertoire `LAK`) est composé de:
 
  * Laura BOURDON [Totoro](https://codeberg.org/Totoro)
  * Alexis XIONG []()
- * Vo Minh Khue HO []()
+ * Vo Minh Khue HO [vominhkhueho](https://codeberg.org/vominhkhueho)
 
 Nous avons traité _Instagram_.
