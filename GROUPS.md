@@ -24,9 +24,9 @@ Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_
 Le groupe THGF (sous répertoire `thgf`) est composé de:
 
  * Baker Thomas [thomaas](https://codeberg.org/thomaas)
- *  Sattia Harish [ibsjti](https://codeberg.org/ibsjti)
- *  [fati](https://codeberg.org/fati)
- * // [Amine1023](https://codeberg.org/Amine1023)
-
+ * Sattia Harish [ibsjti](https://codeberg.org/ibsjti)
+ * Ayed Fatima [fati](https://codeberg.org/fati)
+ * Alkouri George []///// 
+ 
  Nous avons traité _L'informatique Quantique_.
 
