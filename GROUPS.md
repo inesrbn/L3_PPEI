@@ -21,12 +21,12 @@ Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_
 
 ## CodeRise
 
-Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
+Le groupe THGF (sous répertoire `thgf`) est composé de:
 
- * Bastien Teisseire [LightSulivy](https://codeberg.org/LightSulivy)
- * Elina Girot [elinagirot](https://codeberg.org/elinagirot)
- * Rabah Ouafi [Rabah](https://codeberg.org/Rabah)
- * Amine Mamma [Amine1023](https://codeberg.org/Amine1023)
+ * Baker Thomas [thomaas](https://codeberg.org/thomaas)
+ *  [ibsjti](https://codeberg.org/ibsjti)
+ *  [fati](https://codeberg.org/fati)
+ * // [Amine1023](https://codeberg.org/Amine1023)
 
  Nous avons traité _La Blockchain, qu'est ce que c'est ? En quoi est-ce une révolution ?_.
 
