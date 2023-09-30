@@ -19,7 +19,7 @@ Le groupe _Exemple_ (sous-répertoire `exemple`) est composé de:
 
 Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_.
 
-## CodeRise
+## THGF
 
 Le groupe THGF (sous répertoire `thgf`) est composé de:
 
