@@ -21,6 +21,6 @@ Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_
 ## LightSwitch
 
 Le groupe _LightSwitch_ (sous-répertoire `light_switch`) est composé de:
-* Remy TRUONG [remy](https://codeberg.org/remy)
+* Remy TRUONG [remy](https://codeberg.org/remy).
 
 Nous avons fait le choix de parler du sujet des IA; leurs usages dans notre société aujourd'hui et dans le monde de demain, et la vision des gens sur les IAs.
