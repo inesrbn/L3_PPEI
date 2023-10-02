@@ -83,3 +83,14 @@ Le groupe _IAction_ (sous-répertoire `IAction`) est composé de:
 * Thomas DOOKY [T_Dooky](https://codeberg.org/T_Dooky)
 
 Nous allons traité sur _L'IA, la notion, l'apparition, et son évolution_.
+
+## MILK
+
+Le groupe _MILK_ (sous-répertoire `MILK`) est composé de:
+
+* Moeez Muhammad [Moeez](https://codeberg.org/Moeez)
+* Inès Robin [InesR](https://codeberg.org/InesR)
+* Louison Forest [Louison](https://codeberg.org/Louison)
+* Hugo Khun [HugoKhun](https://codeberg.org/HugoKhun)
+
+Nous avons traité _la prévention des cyber-attaques_.
