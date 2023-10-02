@@ -18,3 +18,15 @@ Le groupe _Exemple_ (sous-répertoire `exemple`) est composé de:
  * (et au plus quatre)
 
 Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_.
+
+## Groupe Josh, Subeka, Mounia et Imane
+
+Le groupe JSMI (sous-répertoire `JSMI`) est composé de:
+
+ * Josh KHEZZANE [Josh_RK](https://codeberg.org/Josh_RK)
+ * Subeka RETNASINNAM [Subeka](https://codeberg.org/Subeka)
+ * Mounia TOUATI [Mounia_TOUATI](https://codeberg.org/Mounia_Touati)
+ * Imane EL QUCHIRI [ELQUCHIRI](https://codeberg.org/ELQUCHIRI)
+
+Nous avons fait le choix d'aborder le sujet du Green Cloud. 
+Il s'agit d'une approche consistant à réduire l'utisation excession de ressource (particulièrement énergétique) via une meilleure gestion du cloud (hardware / software).
