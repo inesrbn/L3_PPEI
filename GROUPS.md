@@ -26,7 +26,7 @@ Le groupe THGF (sous répertoire `thgf`) est composé de:
  * Baker Thomas [thomaas](https://codeberg.org/thomaas)
  * Sattia Harish [ibsjti](https://codeberg.org/ibsjti)
  * Ayed Fatima [fati](https://codeberg.org/fati)
- * Alkouri George []///// 
+ * Alkouri George [Gee7514](https://codeberg.org/Gee7514)
  
  Nous avons traité _L'informatique Quantique_.
 
