@@ -18,6 +18,7 @@ Le groupe _Exemple_ (sous-répertoire `exemple`) est composé de:
  * (et au plus quatre)
 
 Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_.
+<<<<<<< HEAD
 
 ## Groupe Josh, Subeka, Mounia et Imane
 
@@ -52,3 +53,13 @@ Le groupe _NewVision_ (sous-répertoire `NewVision`) est composé de:
  * Yacine CHERIEF [cherief_samy](https://codeberg.org/cherief_samy)
 
 Nous avons traité _Computer vision : Le regard numérique qui transforme le monde visuel en intelligence_.
+
+## LAK
+
+Le groupe _LAK_ (sous-répertoire `LAK`) est composé de:
+
+ * Laura BOURDON [Totoro](https://codeberg.org/Totoro)
+ * Alexis XIONG [Alexis_Xg](https://codeberg.org/Alexis_Xg)
+ * Vo Minh Khue HO [vominhkhueho](https://codeberg.org/vominhkhueho)
+
+Nous avons traité _Instagram_.
