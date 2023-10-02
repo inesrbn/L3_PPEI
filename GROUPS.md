@@ -22,7 +22,8 @@ Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_
 ## LightSwitch
 
 Le groupe _LightSwitch_ (sous-répertoire `light_switch`) est composé de:
-* BOUKHZAR Nouriddin [LightSwitch](https://codeber.org/LightSwitch)
+* BOUKHZAR Nouriddin [LightSwitch](https://codeberg.org/LightSwitch)
 * Remy TRUONG [remy](https://codeberg.org/remy).
+* WATREMEZ Lénaïc [WATREMEZ](https://codeberg.org/WATREMEZ)
 
 Nous avons fait le choix de parler du sujet des IA; leurs usages dans notre société aujourd'hui et dans le monde de demain, et la vision des gens sur les IAs.
