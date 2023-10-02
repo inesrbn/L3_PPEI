@@ -41,3 +41,14 @@ Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
  * Amine Mamma [Amine1023](https://codeberg.org/Amine1023)
 
  Nous avons traité _La Blockchain, qu'est ce que c'est ? En quoi est-ce une révolution ?_.
+
+## NewVision
+
+Le groupe _NewVision_ (sous-répertoire `NewVision`) est composé de:
+
+ * Ines BAGOU [BAGOU_Ines](https://codeberg.org/BAGOU_Ines)
+ * Saliha TABANI [TABANI_Saliha](https://codeberg.org/TABANI_Saliha)
+ * Kaoutar OUALAD [kaoutar_oualad](https://codeberg.org/kaoutar_oualad)
+ * Yacine CHERIEF [cherief_samy](https://codeberg.org/cherief_samy)
+
+Nous avons traité _Computer vision : Le regard numérique qui transforme le monde visuel en intelligence_.
