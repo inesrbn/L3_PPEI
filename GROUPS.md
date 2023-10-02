@@ -19,6 +19,16 @@ Le groupe _Exemple_ (sous-répertoire `exemple`) est composé de:
 
 Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_.
 
+## JRS
+
+Le groupe _JRS_ (sous répertoire `JRS`) est composé de:
+
+ * Jathissan Civaneswaran [Jathissan](https://codeberg.org/Jathissan)
+ * Ryan Tauch [rtauch](https://codeberg.org/rtauch)
+ * Semmel Tandabany [sem_mel](https://codeberg.org/sem_mel)
+
+ Nous avons traité _DALL-E, l'IA génératrice d'images à partir d'un texte_.
+
 ## CodeRise
 
 Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
