@@ -54,6 +54,17 @@ Le groupe _NewVision_ (sous-répertoire `NewVision`) est composé de:
 
 Nous avons traité _Computer vision : Le regard numérique qui transforme le monde visuel en intelligence_.
 
+## IAction
+
+Le groupe _IAction_ (sous-répertoire 'IAction') est composé de:
+
+* Daë NIVAUX [Dnivaux](https://codeberg.org/Dnivaux)
+* Quentin SOUMET [Quentin_S](https://codeberg.org/Quentin_S)
+* Thomas DOOKY [T_Dooky](https://codeberg.org/T_Dooky)
+
+Nous allons traité sur _L'IA, la notion, l'apparition, et son évolution_.
+
+
 ## LAK
 
 Le groupe _LAK_ (sous-répertoire `LAK`) est composé de:
