@@ -54,7 +54,6 @@ Le groupe _NewVision_ (sous-répertoire `NewVision`) est composé de:
 
 Nous avons traité _Computer vision : Le regard numérique qui transforme le monde visuel en intelligence_.
 
-
 ## LAK
 
 Le groupe _LAK_ (sous-répertoire `LAK`) est composé de:
