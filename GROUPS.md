@@ -4,7 +4,7 @@ Chaque groupe possède:
 
  * un nom
  * 3 à 4 membres, identifiés par leurs noms, prénoms, et logins sur [Codeberg](https://codeberg.org)
- * un sous-répertoire du projet, avec les fichiers du groupe, et dont le nom est directement dérivé de celui du groupe 
+ * un sous-répertoire du projet, avec les fichiers du groupe, et dont le nom est directement dérivé de celui du groupe
 
 Ces éléments pour chaque groupe sont décrits dans une sous-section de ce fichier en suivant le modèle du groupe fictif _Exemple_ ci-dessous.
 
@@ -18,7 +18,6 @@ Le groupe _Exemple_ (sous-répertoire `exemple`) est composé de:
  * (et au plus quatre)
 
 Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_.
-<<<<<<< HEAD
 
 ## Groupe Josh, Subeka, Mounia et Imane
 
@@ -41,7 +40,7 @@ Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
  * Rabah Ouafi [Rabah](https://codeberg.org/Rabah)
  * Amine Mamma [Amine1023](https://codeberg.org/Amine1023)
 
- Nous avons traité _La Blockchain, qu'est ce que c'est ? En quoi est-ce une révolution ?_.
+Nous avons traité _La Blockchain, qu'est ce que c'est ? En quoi est-ce une révolution ?_.
 
 ## NewVision
 
@@ -63,3 +62,14 @@ Le groupe _LAK_ (sous-répertoire `LAK`) est composé de:
  * Vo Minh Khue HO [vominhkhueho](https://codeberg.org/vominhkhueho)
 
 Nous avons traité _Instagram_.
+
+## LightSwitch
+
+Le groupe _LightSwitch_ (sous-répertoire `light_switch`) est composé de:
+
+* BOUKHZAR Nouriddin [LightSwitch](https://codeberg.org/LightSwitch)
+* TRUONG Remy [remy](https://codeberg.org/remy)
+* WATREMEZ Lénaïc [WATREMEZ](https://codeberg.org/WATREMEZ)
+* BENALI Zakaria [zaki](https://codeberg.org/zaki)
+
+Nous avons fait le choix de parler du sujet des IA; leurs usages dans notre société aujourd'hui et dans le monde de demain, et la vision des gens sur les IAs.
