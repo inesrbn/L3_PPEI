@@ -23,7 +23,7 @@ Nous avons traité _(décrire ici le sujet choisi pour le rapport et l'exposé)_
 
 Le groupe _LightSwitch_ (sous-répertoire `light_switch`) est composé de:
 * BOUKHZAR Nouriddin [LightSwitch](https://codeberg.org/LightSwitch)
-* Remy TRUONG [remy](https://codeberg.org/remy).
+* TRUONG Remy [remy](https://codeberg.org/remy)
 * WATREMEZ Lénaïc [WATREMEZ](https://codeberg.org/WATREMEZ)
 * BENALI Zakaria [zaki](https://codeberg.org/zaki)
 
