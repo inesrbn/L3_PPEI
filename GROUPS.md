@@ -73,3 +73,13 @@ Le groupe _LightSwitch_ (sous-répertoire `light_switch`) est composé de:
 * BENALI Zakaria [zaki](https://codeberg.org/zaki)
 
 Nous avons fait le choix de parler du sujet des IA; leurs usages dans notre société aujourd'hui et dans le monde de demain, et la vision des gens sur les IAs.
+
+## IAction
+
+Le groupe _IAction_ (sous-répertoire `IAction`) est composé de:
+
+* Daë NIVAUX [Dnivaux](https://codeberg.org/Dnivaux)
+* Quentin SOUMET [Quentin_S](https://codeberg.org/Quentin_S)
+* Thomas DOOKY [T_Dooky](https://codeberg.org/T_Dooky)
+
+Nous allons traité sur _L'IA, la notion, l'apparition, et son évolution_.
