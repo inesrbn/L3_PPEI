@@ -30,3 +30,14 @@ Le groupe JSMI (sous-répertoire `JSMI`) est composé de:
 
 Nous avons fait le choix d'aborder le sujet du Green Cloud. 
 Il s'agit d'une approche consistant à réduire l'utisation excession de ressource (particulièrement énergétique) via une meilleure gestion du cloud (hardware / software).
+
+## CodeRise
+
+Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
+
+ * Bastien Teisseire [LightSulivy](https://codeberg.org/LightSulivy)
+ * Elina Girot [elinagirot](https://codeberg.org/elinagirot)
+ * Rabah Ouafi [Rabah](https://codeberg.org/Rabah)
+ * Amine Mamma [Amine1023](https://codeberg.org/Amine1023)
+
+ Nous avons traité _La Blockchain, qu'est ce que c'est ? En quoi est-ce une révolution ?_.
