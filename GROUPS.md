@@ -25,5 +25,6 @@ Le groupe _LightSwitch_ (sous-répertoire `light_switch`) est composé de:
 * BOUKHZAR Nouriddin [LightSwitch](https://codeberg.org/LightSwitch)
 * Remy TRUONG [remy](https://codeberg.org/remy).
 * WATREMEZ Lénaïc [WATREMEZ](https://codeberg.org/WATREMEZ)
+* BENALI Zakaria [zaki](https://codeberg.org/zaki)
 
 Nous avons fait le choix de parler du sujet des IA; leurs usages dans notre société aujourd'hui et dans le monde de demain, et la vision des gens sur les IAs.
