@@ -42,6 +42,17 @@ Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
 
 Nous avons traité _La Blockchain, qu'est ce que c'est ? En quoi est-ce une révolution ?_.
 
+## THGF
+
+Le groupe THGF (sous répertoire `thgf`) est composé de:
+
+ * Baker Thomas [thomaas](https://codeberg.org/thomaas)
+ * Sattia Harish [ibsjti](https://codeberg.org/ibsjti)
+ * Ayed Fatima [fati](https://codeberg.org/fati)
+ * Alkouri George [Gee7514](https://codeberg.org/Gee7514)
+ 
+ Nous avons traité _L'informatique Quantique_.
+
 ## NewVision
 
 Le groupe _NewVision_ (sous-répertoire `NewVision`) est composé de:
