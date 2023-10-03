@@ -31,6 +31,16 @@ Le groupe JSMI (sous-répertoire `JSMI`) est composé de:
 Nous avons fait le choix d'aborder le sujet du Green Cloud. 
 Il s'agit d'une approche consistant à réduire l'utisation excession de ressource (particulièrement énergétique) via une meilleure gestion du cloud (hardware / software).
 
+## JRS
+
+Le groupe _JRS_ (sous répertoire `JRS`) est composé de:
+
+ * Jathissan Civaneswaran [Jathissan](https://codeberg.org/Jathissan)
+ * Ryan Tauch [rtauch](https://codeberg.org/rtauch)
+ * Semmel Tandabany [sem_mel](https://codeberg.org/sem_mel)
+
+ Nous avons traité _DALL-E, l'IA génératrice d'images à partir d'un texte_.
+
 ## CodeRise
 
 Le groupe _CodeRise_ (sous répertoire `CodeRise`) est composé de:
